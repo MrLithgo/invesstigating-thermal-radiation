@@ -1,9 +1,9 @@
 // Initial temperatures
 const initialTemps = {
-    black: 85.0,
-    clear: 85.0,
-    white: 85.0,
-    silver: 85.0
+    black: 85,
+    clear: 85,
+    white: 85,
+    silver: 85
 };
 
 let currentTemps = {...initialTemps};
@@ -41,7 +41,7 @@ function updateTemperatures() {
         document.getElementById(`mercury-${color}`).style.height = `${mercuryHeight}px`;
         
         // Update temperature display
-        document.getElementById(`temp-${color}`).textContent = `${currentTemps[color].toFixed(1)}°C`;
+        document.getElementById(`temp-${color}`).textContent = `${Math.round(currentTemps[color])}°C`;
     }
 }
 
@@ -83,7 +83,7 @@ function resetExperiment() {
     // Reset displays
     for (const color in currentTemps) {
         document.getElementById(`mercury-${color}`).style.height = '170px';
-        document.getElementById(`temp-${color}`).textContent = '85.0°C';
+        document.getElementById(`temp-${color}`).textContent = '85°C';
     }
     
     // Reset stopwatch
