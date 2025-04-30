@@ -27,7 +27,7 @@ const resetBtn = document.getElementById('reset-btn');
 const stopwatchDisplay = document.getElementById('stopwatch');
 
 // Update thermometer and temperature display
-// Modify the updateTemperatures function
+
 function updateTemperatures() {
     const roomTemp = 20.0; // Ambient temperature
     const timeStep = 1.0; // Seconds per update
@@ -53,7 +53,7 @@ function updateTemperatures() {
             currentTemps[color] = Math.max(currentTemps[color], roomTemp);
         }
         
-        // Update display (existing code)
+        // Update display 
         const mercuryHeight = 10 + (currentTemps[color] - roomTemp) * (160 / 65);
         document.getElementById(`mercury-${color}`).style.height = `${mercuryHeight}px`;
         document.getElementById(`temp-${color}`).textContent = `${Math.round(currentTemps[color])}°C`;
