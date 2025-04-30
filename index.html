@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Core Practical 8 Radiation</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+   
+    <title>Core Practical 8 - Radiation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <button id="help-button" style="position: absolute;  ">Help</button>
+    <h1>Core Practical 8 - Radiation</h1>
+    
+    
+    <div id="stopwatch">00:00:00</div>
+    
+    <div class="experiment-container">
+        <div class="test-tube">
+            <div class="thermometer">
+                <div class="mercury" id="mercury-black" style="height: 170px;"></div>
+            </div>
+            <div class="tube-body black"></div>
+            
+            <div class="temperature-display" id="temp-black">85.0°C</div>
+            <div>Black Tube</div>
+        </div>
+        
+        <div class="test-tube">
+            <div class="thermometer">
+                <div class="mercury" id="mercury-clear" style="height: 170px;"></div>
+            </div>
+            <div class="tube-body clear"></div>
+            
+            <div class="temperature-display" id="temp-clear">85.0°C</div>
+            <div>Clear Tube</div>
+        </div>
+        
+        <div class="test-tube">
+            <div class="thermometer">
+                <div class="mercury" id="mercury-white" style="height: 170px;"></div>
+            </div>
+            <div class="tube-body white"></div>
+           
+            <div class="temperature-display" id="temp-white">85.0°C</div>
+            <div>White Tube</div>
+        </div>
+        
+        <div class="test-tube">
+            <div class="thermometer">
+                <div class="mercury" id="mercury-silver" style="height: 170px;"></div>
+            </div>
+            <div class="tube-body silver"></div>
+          
+            <div class="temperature-display" id="temp-silver">85.0°C</div>
+            <div>Silver Tube</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="start-btn">Start Experiment</button>
+        <button id="stop-btn" disabled>Stop</button>
+        <button id="reset-btn">Reset</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

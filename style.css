@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+  font-size: calc(14px + 0.3vw); /* Responsive font size */
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #333;
+  margin-bottom: 100px;
+}
+
+.experiment-container {
+   margin-top: 50px; 
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+    max-width: 900px;
+   flex-direction: row; /* Default horizontal layout */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 20px; /* Space between items */
+    padding: 0 15px; /* Add some side padding */
+}
+
+.test-tube {
+    position: relative;
+   width: calc(25% - 20px); /* 4 tubes per row on large screens */
+    min-width: 150px; /* Minimum width */
+    margin-bottom: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tube-body {
+    width: 40px;
+    height: 150px;
+    border-radius: 0 0 40px 40px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-top: none;
+    
+}
+
+.tube-neck {
+    width: 30px;
+    height: 50px;
+    border-radius: 0 0 15px 15px;
+    border: 2px solid #333;
+    border-top: none;
+    background-color: rgba(200, 200, 200, 0.3);
+    margin-top: -2px;
+}
+
+.thermometer {
+    position: absolute;
+    width: 8px;
+    height: 180px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -120px;
+    z-index: -1;
+}
+
+.mercury {
+    position: absolute;
+    bottom: 5px;
+    left: 1px;
+    width: 6px;
+    background-color: #e74c3c;
+    border-radius: 3px;
+    transition: height 1s linear;
+}
+
+.temperature-display {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.controls {
+    margin: 30px auto;
+}
+
+button {
+  padding: 12px 24px; /* Larger touch targets */
+    min-width: 100px; /* Minimum button width */
+    font-size: 1rem;
+    
+    margin: 0 10px;
+    
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+#stopwatch {
+    font-size: 24px;
+    margin: 20px;
+    font-family: monospace;
+}
+
+/* Tube colors */
+.black { background-color: #333 !important; }
+.white { background-color: #fff !important; }
+.silver { background-color: #c0c0c0 !important; background-image: linear-gradient(to right, #c0c0c0, #e0e0e0, #c0c0c0) !important; }
+.clear { background-color: rgba(200, 200, 255, 0.3) !important; }
+
+#help-button{
+  position: fixed;
+  border: none;
+  color: white;
+  top: 20px;
+  left: 20px;
+  background-color: #3498db;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width:5%;
+  
+}
+
+#reset-btn {
+   background-color: #3498db;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1024px) { /* Tablet landscape */
+    .test-tube {
+        width: calc(33% - 20px); /* 3 tubes per row */
+    }
+}
+
+@media (max-width: 768px) { /* Tablet portrait */
+    .test-tube {
+        width: calc(50% - 20px); /* 2 tubes per row */
+    }
+    
+    .experiment-container {
+        justify-content: center; /* Center tubes */
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    .test-tube {
+        width: 100%; /* 1 tube per row */
+        max-width: 200px;
+    }
+   .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
