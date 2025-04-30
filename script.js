@@ -36,10 +36,10 @@ function updateTemperatures() {
         if (currentTemps[color] > roomTemp) {
             // Material-specific cooling coefficients (lower = slower cooling)
             const materialCoefficients = {
-                black: 0.008,  // Best emitter
-                clear: 0.006,
-                white: 0.004,
-                silver: 0.002  // Worst emitter
+                black: 0.004,  // Best emitter
+                clear: 0.003,
+                white: 0.002,
+                silver: 0.001  // Worst emitter
             };
             
             // Newton's Law of Cooling: dT/dt = -k(T - T_env)
