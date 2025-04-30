@@ -103,7 +103,7 @@ function resetExperiment() {
     
     // Reset stopwatch
     seconds = 0;
-    stopwatchDisplay.textContent = '00:00:00';
+    stopwatchDisplay.textContent = '00:00';
 }
 
 // Update stopwatch display
@@ -114,7 +114,7 @@ function updateStopwatch() {
     const secs = seconds % 60;
     
     stopwatchDisplay.textContent = 
-        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
 // Event listeners
