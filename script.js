@@ -27,20 +27,35 @@ const resetBtn = document.getElementById('reset-btn');
 const stopwatchDisplay = document.getElementById('stopwatch');
 
 // Update thermometer and temperature display
+// Modify the updateTemperatures function
 function updateTemperatures() {
+    const roomTemp = 20.0; // Ambient temperature
+    const timeStep = 1.0; // Seconds per update
+    
     for (const color in currentTemps) {
-        // Ensure temperature doesn't go below room temperature (assuming ~20°C)
-        if (currentTemps[color] > 20.0) {
-            currentTemps[color] -= coolingRates[color] * (Math.random() * 0.1 + 0.95); // Small random variation
-        } else {
-            currentTemps[color] = 20.0;
+        if (currentTemps[color] > roomTemp) {
+            // Material-specific cooling coefficients (lower = slower cooling)
+            const materialCoefficients = {
+                black: 0.008,  // Best emitter
+                clear: 0.006,
+                white: 0.004,
+                silver: 0.002  // Worst emitter
+            };
+            
+            // Newton's Law of Cooling: dT/dt = -k(T - T_env)
+            const deltaT = -materialCoefficients[color] * 
+                         (currentTemps[color] - roomTemp) * 
+                         timeStep;
+            
+            currentTemps[color] += deltaT * (0.95 + Math.random() * 0.1);
+            
+            // Ensure we don't go below room temp
+            currentTemps[color] = Math.max(currentTemps[color], roomTemp);
         }
         
-        // Update thermometer mercury height (170px = 85°C, 10px = 20°C)
-        const mercuryHeight = 10 + (currentTemps[color] - 20) * (160 / 65);
+        // Update display (existing code)
+        const mercuryHeight = 10 + (currentTemps[color] - roomTemp) * (160 / 65);
         document.getElementById(`mercury-${color}`).style.height = `${mercuryHeight}px`;
-        
-        // Update temperature display
         document.getElementById(`temp-${color}`).textContent = `${Math.round(currentTemps[color])}°C`;
     }
 }
